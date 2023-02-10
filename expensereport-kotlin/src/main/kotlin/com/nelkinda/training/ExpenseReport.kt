@@ -1,10 +1,8 @@
 package com.nelkinda.training
 
 import com.nelkinda.training.model.Expense
-import com.nelkinda.training.model.ExpenseType
-import com.nelkinda.training.model.ExpenseType.*
 import com.nelkinda.training.model.FinalExpense
-import java.util.Date
+import java.util.*
 
 class ExpenseReport {
     fun printReport(expenses: List<Expense>) {
@@ -23,8 +21,7 @@ class ExpenseReport {
     ): FinalExpense {
         var mealExpenses = 0
         var total = 0
-
-        for (expense in expenses) {
+        expenses.forEach { expense: Expense ->
             var mealOverExpensesMarker = " "
             if (expense.isExpenseTypeAMeal) {
                 mealExpenses += expense.amount
